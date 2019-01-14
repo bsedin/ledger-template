@@ -1,0 +1,5 @@
+#!/bin/bash
+
+LEDGER_ARGS='-f ledger.ldg'
+
+ledger ${LEDGER_ARGS} "$@"

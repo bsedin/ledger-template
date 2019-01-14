@@ -1,0 +1,14 @@
+#!/bin/bash
+
+LEDGER_ARGS='-w '
+LEDGER_BALANCE=`bin/ledger ${LEDGER_ARGS} bal ^Assets`
+LEDGER_BUDGET=`bin/budget ${LEDGER_ARGS}`
+LEDGER_EXPENSES=`bin/ledger ${LEDGER_ARGS} -b 'this month' bal ^Expenses`
+UPDATED_AT=`date +"%F %R"`
+
+cat templates/README.md.tpl | \
+  awk -v balance="$LEDGER_BALANCE" '{ gsub(/%{balance}/, balance, $0); print $0 }' | \
+  awk -v budget="$LEDGER_BUDGET" '{ gsub(/%{budget}/, budget, $0); print $0 }' | \
+  awk -v expenses="$LEDGER_EXPENSES" '{ gsub(/%{expenses}/, expenses, $0); print $0 }' | \
+  awk -v updated_at="$UPDATED_AT" '{ gsub(/%{updated_at}/, updated_at, $0); print $0 }' \
+  > README.md

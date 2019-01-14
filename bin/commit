@@ -1,0 +1,5 @@
+#!/bin/bash
+
+bin/update_graphs
+bin/update_readme
+git commit -am 'Update transactions'

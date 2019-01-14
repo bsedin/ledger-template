@@ -1,0 +1,4 @@
+include ledger/accounts.ldg
+include ledger/commodities.ldg
+include ledger/budgets.ldg
+include ledger/transactions.ldg

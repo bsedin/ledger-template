@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export LEDGER_GNUPLOT_TERM="png font arial 12 size 1280,400"
+
+echo 'Assets graph'
+bin/report -J -n reg ^Assets > images/assets_graph.png
+
+echo 'Expenses graph'
+bin/report -j -M -n --no-rounding reg ^Expenses > images/expenses_graph.png
