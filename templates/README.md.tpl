@@ -4,17 +4,19 @@ See [ledger-cli](https://www.ledger-cli.org/) for more info
 
 ## Quickstart
 
+    $ git clone git@github.com:kressh/ledger-template.git ~/.ledger
+    $ cd ~/.ledger
+    $ EDITOR=vim ./bin/edit # (Uses $EDITOR env variable) or nano ledger/transactions.ldg && ./bin/commit
+
+### Basic commands (see ledger book for more: https://www.ledger-cli.org/3.0/doc/ledger3.html )
+
     $ ./bin/ledger bal ^Assets
     $ ./bin/ledger bal -p 'this month' ^Expenses
     $ ./bin/ledger bal -p 'this year' ^Expenses:Taxi
     $ ./bin/ledger reg -p 'this month' ^Expenses:Taxi
     $ ./bin/budget -X USD
 
-After you updated ledger/transactions.ldg just execute ./bin/commit
-
-    $ ./bin/commit
-
-## Generated reports
+## reports
 
 ### Assets
 
